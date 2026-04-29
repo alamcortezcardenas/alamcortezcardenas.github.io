@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Loading Creative Cloud</title>
+            <style>
+                html, body {
+                    height: 100%;
+                    overflow: hidden;
+                }
+                .container {
+                    height: 100%;
+                    width: 100%;
+                    display: grid;
+                    place-items: center;
+                }
+
+                .loader {
+                    width: 100px;
+                    height: 100px;
+                }
+            </style>
+
+</head>
+<body>
+    <div class="container">
+        <img class="loader" src="loader.gif"/>
+    </div>
+    <script>
+        function setBackgroundColor() {
+            url = window.location.href;
+            search = url.split('?')[1];
+            if (search) {
+                params = new URLSearchParams(search);
+                if (params.get('defaultColorTheme') == 'darkest') {
+                    document.body.style.backgroundColor = 'rgb(27, 27, 27)';
+                } else {
+                    document.body.style.backgroundColor = 'rgb(248, 248, 248)';
+                }
+            }
+        }
+        setBackgroundColor();
+    </script>
+</body>
+</html>
